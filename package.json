@@ -10,7 +10,7 @@
     "url": "(https://github.com/yejiseo0725/project_Youtube)"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node index.js"
+    "dev": "nodemon --exec babel-node src/server.js"
   },
   "author": "YEJI SEO",
   "license": "MIT",
