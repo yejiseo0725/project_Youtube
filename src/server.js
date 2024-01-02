@@ -4,33 +4,14 @@ const PORT = 4000;
 
 const app = express();
 
-const logger = (req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
-}
-const privateMiddleware = (req, res, next) => {
-  const url = req.url;
-  if (url === "/protected") {
-    return res.send("<h1>허용되지 않아요. Not Allowed!</h1>")
-  }
-  console.log("You may continue. 당신은 통과에요! ^_^");
-  next();
-}
-const handleHome = (req, res) => {
-  return res.send("I love you :D");
-};
-
-const handledProtected = (req, res) => {
-  return res.send("Welcome to the private lounge...:3");
+const home = (req, res) => {
+  return res.send("<h1>HELLO</h1>");
 }
 
-app.use(logger);
-app.use(privateMiddleware);
+app.get("/", home);
+// app.get("/", (req, res) => res.send("hello"));
 
-app.get("/", handleHome);
-app.get("/protected", handledProtected);
+const handleListening = () =>
+    console.log(`Server listening on port http://localhost:${PORT}`);
 
-const handleListening = () => console.log(`Listening on port http://localhost:${PORT}🧀`);
-
-app.listen(4000, handleListening);
-
+app.listen(PORT, handleListening);
