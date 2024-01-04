@@ -7,12 +7,18 @@
 /search -> Search
 
 [User Routers]
-/users/edit -> Edit User
-/users/delete -> Delete User
+/users/:id -> See User
+/users/logout -> Log Out
+/users/edit -> Edit My Profile
+/users/delete -> Delete My Profile
 
 [Video Routers]
-/videos/watch -> Watch Video
-/videos/edit -> Edit Video
-/videos/delete -> Delete Video
+
+[//]: # ( owner === :id )
+/videos/:id -> See Video
+/videos/:id/edit -> Edit Video
+/videos/:id/delete -> Delete Video
+/videos/upload -> Upload Video
+
 /videos/comments -> Comment On A Video
 /videos/comments/delete -> Delete A Comment Of a Video
