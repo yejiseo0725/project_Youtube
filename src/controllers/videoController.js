@@ -14,7 +14,7 @@ export const trending = (req, res) => {
             comments: 2,
             createdAt: "2 minutes ago",
             views: 59,
-            id: 1,
+            id: 2,
         },
         {
             title: "Third Video",
@@ -22,12 +22,16 @@ export const trending = (req, res) => {
             comments: 2,
             createdAt: "2 minutes ago",
             views: 59,
-            id: 1,
+            id: 3,
         },
     ];
     return res.render("home", { pageTitle: "Home", videos })
 };
-export const see = (req, res) => res.render("watch");
+export const see = (req, res) => {
+    const { id } = req.params;
+    const video = videos[id - 1];
+    return res.render("watch", {pageTitle: `Watching ${video .title}`});
+};
 export const edit = (req, res) => res.render("edit");
 export const deleteVideo = (req, res) => {
     console.log(req.params);

@@ -5,9 +5,7 @@ import videoRouter from "./routers/videoRouter.js";
 import userRouter from "./routers/userRouter.js";
 
 const PORT = 4000;
-
-console.log(process.cwd());
-
+// console.log(process.cwd());
 const app = express();
 const logger = morgan("dev");
 
