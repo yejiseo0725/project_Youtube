@@ -31,9 +31,13 @@ export const trending = (req, res) => {
 export const watch = (req, res) => {
     const { id } = req.params;
     const video = videos[id - 1];
-    return res.render("watch", {pageTitle: `Watching ${video .title}`, video});
+    return res.render("watch", { pageTitle: `Watching: ${video.title}`, video });
 };
-export const edit = (req, res) => res.render("edit");
+export const edit = (req, res) => {
+    const { id } = req.params;
+    const video = videos[id - 1];
+    return res.render("edit", { pageTitle: `Editing: ${video.title}`, video });
+};
 export const deleteVideo = (req, res) => {
     console.log(req.params);
     return res.send("Delete Video");
